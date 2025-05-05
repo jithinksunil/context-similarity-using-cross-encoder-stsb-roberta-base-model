@@ -1,6 +1,11 @@
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from sentence_transformers import CrossEncoder
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+logger.info("FastAPI app started")
 
 # Load the model once when the app starts
 model = CrossEncoder("cross-encoder/stsb-roberta-base")
